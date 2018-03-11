@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>System</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <nav class="navbar navbar-inverse">
+      <%= link_to 'Homepage', root_path, class: 'navbar-brand' %>
+      <div class="container">
+      <p class="navbar-text navbar-right">
+
+      <% if user_signed_in? %>
+      <%= link_to 'New Post', new_post_path, class: 'navbar-brand' %>
+      <%= link_to 'My Account', new_post_path, class: 'navbar-brand' %>
+      <%= link_to 'Dashboard', new_post_path, class: 'navbar-brand' %>
+      <%= link_to 'Mocks', new_post_path, class: 'navbar-brand' %>
+      <%= link_to 'Test', new_post_path, class: 'navbar-brand' %>
+      <%= link_to 'Jobs', new_post_path, class: 'navbar-brand' %>
+
+       <p>Hello, <%= current_user.name %> - <%= link_to "Sign_out", destroy_user_session_path, :method => :delete, class: 'navbar-brand' %></p>
+
+       <% else %>
+
+       <%= link_to "Sign_In", new_user_session_path, class: 'navbar-brand' %>
+       <%= link_to "Register", new_user_registration_path, class: 'navbar-brand' %>
+       <%= link_to "Upcoming Drives", new_user_session_path, class: 'navbar-brand' %>
+       <% end %>
+
+      </p>
+   </div>
+</nav>
+<div class="col-md-10 col-md-offset-1">
+
+</div>
+       
+    <%= yield %>
+  </body>
+</html>

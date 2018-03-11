@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+<%= content_for(:title, @post.title) %>
+<div class="page-header">
+<h1 align='center'>
+  <%= @post.title %>
+</h1>
+</div>
+<div class="page panel-default">
+<div class="panel-heading">
+<h3 align='center'>
+  <%= @post.content %>
+</h3>
+</div>
+
+
+
+
+<div class="btn-group pull-right">
+	<div class="btn-group">
+	<div class="page panel-default">
+<div class="panel-heading">
+<h3 align='center'>
+<h2>Comments:</h2>	
+<%= render @post.comments %>
+<%= render "comments/form" %>
+<%= link_to 'Edit', edit_post_path(@post), class: "btn btn-default"  %>
+<%= link_to 'Destroy', @post, method: :delete, date: { confirm: 'Are you sure?'}, class: "btn btn-default" %>
+<%= link_to 'Back', posts_path, class: "btn btn-default"  %>
+</div>  
+	 </div>
